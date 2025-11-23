@@ -1,4 +1,5 @@
-/*using GameAnalyticsSDK;
+using GameAnalyticsSDK;
+using UnityEngine;
 
 public class GAInit : MonoBehaviour
 {
@@ -6,4 +7,4 @@ public class GAInit : MonoBehaviour
     {
         GameAnalytics.Initialize();
     }
-}*/
+}

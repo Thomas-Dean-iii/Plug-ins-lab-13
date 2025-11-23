@@ -745,7 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
   downloader: {fileID: 1866073107}
-  imageURL: 
+  imageURL: https://cdn.pixabay.com/photo/2023/05/18/16/25/sea-8002720_1280.jpg
   rend: {fileID: 381075528}
 --- !u!65 &381075527
 BoxCollider:
@@ -832,13 +832,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381075525}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 6.21}
+  m_LocalRotation: {x: -0, y: -0, z: -0.99999243, w: 0.0039128433}
+  m_LocalPosition: {x: -11.97, y: 0.9, z: 6.21}
   m_LocalScale: {x: 8, y: 5, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.552}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
   downloader: {fileID: 1866073107}
-  imageURL: 
+  imageURL: https://cdn.pixabay.com/photo/2014/05/28/20/01/coastal-landscape-356767_1280.jpg
   rend: {fileID: 579736214}
 --- !u!65 &579736213
 BoxCollider:
@@ -1597,13 +1597,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579736211}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.21}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9999798, w: 0.006361116}
+  m_LocalPosition: {x: 0.04, y: 0.9, z: 6.21}
   m_LocalScale: {x: 8, y: 5, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.271}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
   downloader: {fileID: 1866073107}
-  imageURL: 
+  imageURL: https://cdn.pixabay.com/photo/2024/02/22/17/44/rain-8590529_1280.png
   rend: {fileID: 1087122362}
 --- !u!65 &1087122361
 BoxCollider:
@@ -1909,13 +1909,57 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087122359}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 6.21}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9999997, w: 0.0008519973}
+  m_LocalPosition: {x: 12, y: 1.15, z: 6.21}
   m_LocalScale: {x: 8, y: 5, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.902}
+--- !u!1 &1170773782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170773783}
+  - component: {fileID: 1170773784}
+  m_Layer: 0
+  m_Name: AnalyticsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1170773783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170773782}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.80557, y: 0, z: 11.89719}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1170773784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170773782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d306372c70316904791b1f8c31abb85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GAInit
 --- !u!1 &1317669841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,9 +2338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ImageDownloader
   imageUrls:
-  - https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.theguardian.com%2Flifeandstyle%2F2025%2Fapr%2F27%2Fwhich-dog-should-i-get-how-to-choose-the-best-pet-for-families-city-living-or-people-with-allergies&psig=AOvVaw0mBzmVzMhhNBnDYEV5jy4b&ust=1763967170547000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJi1hvbXh5EDFQAAAAAdAAAAABAE
-  - 
-  - 
+  - https://cdn.pixabay.com/photo/2013/02/21/19/06/beach-84531_1280.jpg
+  - https://cdn.pixabay.com/photo/2018/05/02/18/23/landscape-3369304_960_720.jpg
+  - https://cdn.pixabay.com/photo/2022/02/17/09/07/storm-7018311_1280.jpg
 --- !u!4 &1866073108
 Transform:
   m_ObjectHideFlags: 0
@@ -2462,3 +2506,4 @@ SceneRoots:
   - {fileID: 381075530}
   - {fileID: 579736216}
   - {fileID: 1087122364}
+  - {fileID: 1170773783}

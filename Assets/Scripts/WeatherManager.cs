@@ -1,41 +1,45 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class WeatherManager
 {
+    private string apiKey = "c2370700fbe334813e8a501a9a1e1175"; 
 
-    private const string xmlApi = "http://api.openweathermap.org/data/2.5/weather?q=Orlando,us&mode=xml&appid=APIKEY";
-
+    
     private string URL(string city)
-    => $"https://api.openweathermap.org/data/2.5/weather?q={city}&mode=xml&appid";
+    {
+        return $"https://api.openweathermap.org/data/2.5/weather?q={city}&mode=xml&appid={apiKey}";
+    }
 
+    
     private IEnumerator CallAPI(string url, Action<string> callback)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             yield return request.SendWebRequest();
+
             if (request.result == UnityWebRequest.Result.ConnectionError)
-            {
-                Debug.LogError($"network problem: {request.error}");
-            }
+                Debug.LogError($"Network problem: {request.error}");
             else if (request.result == UnityWebRequest.Result.ProtocolError)
-            {
-                Debug.LogError($"response error: {request.responseCode}");
-            }
+                Debug.LogError($"Response error: {request.responseCode}");
             else
-            {
                 callback(request.downloadHandler.text);
-            }
         }
     }
 
-    public IEnumerator GetWeatherXML(string city, Action<string> callback)
+    
+    public IEnumerator GetWeatherXML(string city, Action<string> callback, MonoBehaviour runner)
     {
-        string url = URL(city);
-        yield return CallAPI(xmlApi, callback);
-    }
+        if (string.IsNullOrEmpty(city))
+        {
+            Debug.LogError("WeatherManager: City is null or empty!");
+            yield break;
+        }
 
+        string url = URL(city);
+        
+        yield return runner.StartCoroutine(CallAPI(url, callback));
+    }
 }

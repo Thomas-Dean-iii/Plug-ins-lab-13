@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WeatherSceneController : MonoBehaviour
 {
-    public WeatherManager weather;
+    private WeatherManager weather;
 
     [Header("Skybox Materials")]
     public Material skyClear;
@@ -15,27 +15,63 @@ public class WeatherSceneController : MonoBehaviour
     public Light sun;
 
     [Header("City Selection")]
-    public string[] cities;
+    public string[] cities = { "Orlando,us", "Tokyo,jp", "London,uk", "Sydney,au", "Reykjavik,is" };
     public int selectedCityIndex = 0;
+
+    private void Awake()
+    {
+        
+        weather = new WeatherManager();
+
+        
+        if (cities == null || cities.Length == 0)
+        {
+            Debug.LogError("WeatherSceneController: No cities set!");
+        }
+
+        if (sun == null)
+        {
+            Debug.LogError("WeatherSceneController: Sun Light is not assigned!");
+        }
+    }
 
     private void Start()
     {
         UpdateCity();
     }
 
+    
     public void UpdateCity()
     {
-        StartCoroutine(weather.GetWeatherXML(cities[selectedCityIndex], OnWeatherLoaded));
+        if (weather == null)
+        {
+            Debug.LogError("WeatherManager is not initialized!");
+            return;
+        }
+
+        if (cities == null || cities.Length == 0)
+        {
+            Debug.LogError("No cities set!");
+            return;
+        }
+
+        string city = cities[selectedCityIndex];
+        StartCoroutine(weather.GetWeatherXML(city, OnWeatherLoaded, this));
     }
 
+    
     private void OnWeatherLoaded(string xml)
     {
-        Debug.Log(xml);
+        if (string.IsNullOrEmpty(xml))
+        {
+            Debug.LogError("WeatherSceneController: Received empty weather data!");
+            return;
+        }
 
         string condition = WeatherParser.GetCondition(xml);
 
-        // --- Apply skybox ---
-        switch (condition)
+        
+        switch (condition.ToLower())
         {
             case "clear sky":
                 RenderSettings.skybox = skyClear;
@@ -63,12 +99,19 @@ public class WeatherSceneController : MonoBehaviour
                 break;
         }
 
-        // Force skybox update
+        
         DynamicGI.UpdateEnvironment();
     }
 
+    
     public void SetCity(int index)
     {
+        if (index < 0 || index >= cities.Length)
+        {
+            Debug.LogError("WeatherSceneController: Invalid city index!");
+            return;
+        }
+
         selectedCityIndex = index;
         UpdateCity();
     }
